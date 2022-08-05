@@ -1,0 +1,9 @@
+.DS_Store
+/.idea
+*.so
+*.pyc
+*.orig
+*.rej
+/build.out
+/goinstall.log
+
