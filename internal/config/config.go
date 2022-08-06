@@ -54,10 +54,12 @@ func LoadConfig() (*Configuration, error) {
     if err := k.Load(file.Provider(configurationFile), yaml.Parser()); err != nil {
         return nil, err
     }
-    k.Load(env.Provider("SJ_", ".", func(s string) string {
+    if err := k.Load(env.Provider("SJ_", ".", func(s string) string {
         return strings.Replace(strings.ToLower(
             strings.TrimPrefix(s, "SJ_")), "_", ".", -1)
-    }), nil)
+    }), nil); err != nil {
+        return nil, err
+    }
 
     c := &Configuration{}
     if err := k.Unmarshal("", c); err != nil {
