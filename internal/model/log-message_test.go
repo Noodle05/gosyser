@@ -2,10 +2,11 @@ package model
 
 import (
 	"gaofamily/syslog/internal/config"
-	"github.com/stretchr/testify/assert"
-	"gopkg.in/mcuadros/go-syslog.v2/format"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
+	"gopkg.in/mcuadros/go-syslog.v2/format"
 )
 
 func TestSetTimestampConvertToLocal(t *testing.T) {
